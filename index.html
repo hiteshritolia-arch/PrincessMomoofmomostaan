@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  min-height:100vh;
+  background:linear-gradient(135deg,#b11226,#0a2a66);
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container{
+  padding:20px;
+  max-width:360px;
+  width:100%;
+}
+
+h1{
+  font-size:1.8rem;
+  margin-bottom:25px;
+}
+
+/* Buttons */
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  position:relative;
+  margin-bottom:20px;
+}
+
+button{
+  padding:12px 26px;
+  border:none;
+  border-radius:30px;
+  font-size:1.1rem;
+  cursor:pointer;
+}
+
+#yes{
+  background:#fff;
+  color:#b11226;
+}
+
+#no{
+  background:#1e3a8a;
+  color:#fff;
+  position:absolute;
+  right:0;
+}
+
+/* Result */
+#result{
+  display:none;
+  margin-top:10px;
+}
+
+#successText{
+  font-size:1.2rem;
+  margin-bottom:15px;
+}
+
+/* Photos */
+.photos{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+}
+
+.photos img{
+  width:48%;
+  border-radius:18px;
+  box-shadow:0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* Mobile fallback */
+@media (max-width:480px){
+  .photos{
+    flex-direction:column;
+  }
+  .photos img{
+    width:100%;
+  }
+}
+
+/* Hearts */
+.heart{
+  position:fixed;
+  bottom:-40px;
+  font-size:28px;
+  animation:floatUp linear infinite;
+  opacity:0.8;
+}
+
+@keyframes floatUp{
+  from{transform:translateY(0);}
+  to{transform:translateY(-120vh);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <h1 id="question">
+    Hey Momo My Princess.... Happy Valentine's day Momo..Will you be my Valentine this year princess momo of momastaan 💖<br>Momo, my princess?
+  </h1>
+
+  <div class="buttons">
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 😜</button>
+  </div>
+
+  <div id="result">
+    <p id="successText">I knew you would say YES 😍  Momo, My Princess ❤️  Can We meet today evening on video call if it's okay with you...</p>
+
+    <div class="photos">
+      <img src="ve.jpeg" alt="Us together">
+      <img src="Lo.jpeg" alt="Love moment">
+    </div>
+  </div>
+</div>
+
+<!-- Floating hearts -->
+<span class="heart" style="left:10%;animation-duration:8s;">❤️</span>
+<span class="heart" style="left:30%;animation-duration:6s;">💙</span>
+<span class="heart" style="left:50%;animation-duration:9s;">❤️</span>
+<span class="heart" style="left:70%;animation-duration:7s;">💙</span>
+<span class="heart" style="left:90%;animation-duration:10s;">❤️</span>
+
+<script>
+const noBtn = document.getElementById("no");
+const yesBtn = document.getElementById("yes");
+const result = document.getElementById("result");
+
+function moveNo(){
+  const x = Math.random()*200 - 100;
+  const y = Math.random()*200 - 100;
+  noBtn.style.transform = `translate(${x}px,${y}px)`;
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+noBtn.addEventListener("click", moveNo);
+
+yesBtn.addEventListener("click", ()=>{
+  document.getElementById("question").style.display = "none";
+  document.querySelector(".buttons").style.display = "none";
+  result.style.display = "block";
+});
+</script>
+
+</body>
+</html>
